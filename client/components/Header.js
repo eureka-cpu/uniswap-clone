@@ -7,7 +7,6 @@ import ethLogo from '../assets/eth.png'
 import uniswapLogo from '../assets/uniswap.png'
 import { TransactionContext } from '../context/TransactionContext'
 
-
 const style = {
     wrapper: `p-4 w-screen flex justify-between items-center`,
     headerLogo: `flex w-1/4 items-center justify-start`,
@@ -27,6 +26,12 @@ const style = {
 const Header = () => {
     const [selectedNav, setSelectedNav] = useState('swap')
     const {connectWallet, currentAccount} = useContext(TransactionContext)
+    const [userName, setUserName] = useState()
+
+    useEffect(() => {
+        if (!currentAccount) return
+        setUserName(`${currentAccount.slice(0, 7)}...${currentAccount.slice(35)}`)
+    }, [])
 
     return (
         <div className={style.wrapper}>
@@ -74,7 +79,7 @@ const Header = () => {
 
                 {currentAccount ? (
                     <div className={`${style.button} ${style.buttonPadding}`}>
-                        <div className={style.buttonTextContainer}>userName</div>
+                        <div className={style.buttonTextContainer}>{userName}</div>
                     </div>
                 ) : (
                     <div
