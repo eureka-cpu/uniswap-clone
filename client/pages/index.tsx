@@ -11,7 +11,7 @@ export default function Home() {
     <div className={style.wrapper}>
       <Header />
       <Main />
-      <h2>Transaction History</h2>
+      {/* <h2>Transaction History</h2> */}
     </div>
   )
 }

@@ -30,8 +30,8 @@ const Header = () => {
 
     useEffect(() => {
         if (!currentAccount) return
-        setUserName(`${currentAccount.slice(0, 7)}...${currentAccount.slice(35)}`)
-    }, [])
+        setUserName(`${currentAccount.slice(0, 5)}...${currentAccount.slice(38, 42)}`)
+    }, [currentAccount])
 
     return (
         <div className={style.wrapper}>
